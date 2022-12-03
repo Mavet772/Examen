@@ -1,0 +1,12 @@
+private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        try {
+            StyleConstants.setUnderline(estilo, true);
+
+            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                    tp_texto.getStyle("miEstilo"),
+                    true);
+        } catch (Exception ex) {
+        }
+    }             
