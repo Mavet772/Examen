@@ -1,0 +1,16 @@
+private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        try {
+
+            StyleConstants.setBackground(estilo,
+                    JColorChooser.showDialog(this,
+                            "Seleccione Color", Color.yellow)
+            );
+
+            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                    tp_texto.getStyle("miEstilo"),
+                    true);
+        } catch (Exception ex) {
+        }
+    }     
