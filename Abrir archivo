@@ -1,0 +1,38 @@
+ private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        File fichero = null;
+        FileInputStream entrada = null;
+        ObjectInputStream objeto = null;        
+        try {
+            JFileChooser jfc = new JFileChooser();
+            FileNameExtensionFilter filtro = 
+                    new FileNameExtensionFilter(
+                            "El Inge Docs", "omf");
+            jfc.setFileFilter(filtro);                   
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION)
+            {
+               fichero = jfc.getSelectedFile();
+                entrada
+                    = new FileInputStream(fichero);
+                 objeto
+                    = new ObjectInputStream(entrada);              
+               tp_texto.setText("");  
+               Documento temp=(Documento)objeto.readObject();
+               tp_texto.setText( ((Documento)  temp  ).getPanel().getText() );
+               tp_texto.setDocument( ((Documento)temp  ).getDoc()   ) ;
+                
+               
+               
+            } //fin if
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            objeto.close();
+            entrada.close();
+        } catch (IOException ex) {
+        }
+
+    }                  
