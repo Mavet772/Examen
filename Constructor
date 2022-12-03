@@ -1,0 +1,14 @@
+public Principal() {
+        initComponents();
+        doc = tp_texto.getStyledDocument();
+        estilo = tp_texto.addStyle("miEstilo", null);
+
+        DefaultComboBoxModel modelo=(DefaultComboBoxModel) cb_font.getModel();
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        String fontNames[] = ge.getAvailableFontFamilyNames();
+        for (int i = 0; i < fontNames.length; i++) {
+            modelo.addElement(fontNames[i]);
+        }
+        cb_font.setModel(modelo);
+
+    }
