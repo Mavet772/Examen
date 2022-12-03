@@ -1,0 +1,43 @@
+private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = 
+                    new FileNameExtensionFilter(
+                            "El Inge Docs", "omf");
+         jfc.setFileFilter(filtro); 
+        int seleccion = jfc.showSaveDialog(this); 
+       
+        FileOutputStream fw = null;
+        ObjectOutputStream bw = null;
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+             try {
+                 
+                  File fichero=null;
+                if (jfc.getFileFilter().getDescription().equals(
+                        "El Inge Docs")) {
+                    fichero = 
+                        new File(jfc.getSelectedFile().getPath()+".omf");
+                }else{
+                    fichero = jfc.getSelectedFile();
+                }   
+                
+                fw = new FileOutputStream(fichero);
+                bw = new ObjectOutputStream(fw);
+                Documento d=new Documento(tp_texto,doc,estilo);
+                bw.writeObject(d);
+                bw.flush();
+                
+                JOptionPane.showMessageDialog(this, 
+                        "Archivo guardado exitosamente");  
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+                               
+        }//fin IF
+        try {
+                    bw.close();
+                    fw.close();
+                } catch (IOException ex) {
+           } 
+        
+    }      
