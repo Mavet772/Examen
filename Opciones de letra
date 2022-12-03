@@ -1,0 +1,40 @@
+private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        try {
+            StyleConstants.setUnderline(estilo, true);
+
+            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                    tp_texto.getStyle("miEstilo"),
+                    true);
+        } catch (Exception ex) {
+        }
+    }             
+    
+    //letra inclinada
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        try {
+            StyleConstants.setItalic(estilo, true);
+
+            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                    tp_texto.getStyle("miEstilo"),
+                    true);
+        } catch (Exception ex) {
+        }
+    }   
+
+//letra negri
+private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        try {
+            StyleConstants.setBold(estilo, true);
+
+            doc.setCharacterAttributes(tp_texto.getSelectionStart(),
+                    tp_texto.getSelectionEnd() - tp_texto.getSelectionStart(),
+                    tp_texto.getStyle("miEstilo"),
+                    true);
+        } catch (Exception ex) {
+        }
+    }     
